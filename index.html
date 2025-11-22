@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7 Veličanstvenih - Filmska škola u Beogradu | Praktični kurs za 7 polaznika</title>
+    <meta name="description" content="Pridruži se ekskluzivnoj filmskoj avanturi! 7 nedelja, 7 žanrova, 7 polaznika. Nauči snimanje, montažu, režiju i snimi kratki film. Prijavi se sada!">
+    <meta name="keywords" content="filmska škola beograd, kurs filmovanja, snimanje telefonom, montaža videa, filmska produkcija, kreativni kurs, režija kursu, videomaking beograd">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="7 Veličanstvenih - Filmska škola u Beogradu">
+    <meta property="og:description" content="Pridruži se ekskluzivnoj filmskoj avanturi! 7 nedelja, 7 žanrova, 7 polaznika.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #1a1a1a;
+            --bg-card: #1e1e1e;
+            --accent-gold: #FFB800;
+            --accent-gold-light: #D4AF37;
+            --accent-red: #8B0000;
+            --accent-red-light: #A52A2A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #F5F5F5;
+            --text-muted: #A0A0A0;
+            --border-color: #333333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-cta {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background-color: var(--accent-red-light);
+            transform: scale(1.05);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 50%, #1a1a1a 100%);
+            z-index: 0;
+        }
+
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1485846234645-a62644f84728?w=1920&q=80') center/cover;
+            opacity: 0.3;
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(10,10,10,0.7) 0%, rgba(10,10,10,0.5) 50%, rgba(10,10,10,1) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            padding: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 20px rgba(0,0,0,0.5);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--accent-gold-light);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            color: var(--text-secondary);
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-red-light);
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.3);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--accent-gold);
+            padding: 16px 32px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-gold);
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent-gold);
+            margin: 20px auto 0;
+        }
+
+        /* Video Section */
+        .video-section {
+            background-color: var(--bg-primary);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-card) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .video-placeholder::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=900&q=80') center/cover;
+            opacity: 0.5;
+        }
+
+        .play-button {
+            width: 80px;
+            height: 80px;
+            background-color: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 10;
+        }
+
+        .play-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 184, 0, 0.5);
+        }
+
+        .play-button i {
+            color: var(--bg-primary);
+            width: 32px;
+            height: 32px;
+            margin-left: 4px;
+        }
+
+        /* Concept Section */
+        .concept-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .concept-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .concept-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .concept-text p {
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 10px;
+            background: var(--bg-card);
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-item:hover {
+            transform: translateX(5px);
+        }
+
+        .skill-item i {
+            color: var(--accent-gold);
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .skill-item span {
+            font-size: 0.95rem;
+        }
+
+        /* Audience Section */
+        .audience-section {
+            background-color: var(--bg-primary);
+            text-align: center;
+        }
+
+        .audience-checks {
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 15px;
+            margin-bottom: 10px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .check-item:hover {
+            background: var(--bg-secondary);
+            transform: translateX(10px);
+        }
+
+        .check-item i {
+            color: var(--accent-gold);
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .check-item span {
+            font-size: 1.1rem;
+        }
+
+        .audience-highlight {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .audience-requirements {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* How It Works Section */
+        .how-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .how-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .how-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .how-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-gold);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .how-card i {
+            color: var(--accent-gold);
+            width: 48px;
+            height: 48px;
+            margin-bottom: 20px;
+        }
+
+        .how-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .how-card p {
+            color: var(--text-muted);
+        }
+
+        /* Curriculum Section */
+        .curriculum-section {
+            background-color: var(--bg-primary);
+        }
+
+        .curriculum-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .week-item {
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .week-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+            cursor: pointer;
+            background: var(--bg-card);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .week-header:hover {
+            background: var(--bg-secondary);
+        }
+
+        .week-header.active {
+            background: var(--bg-secondary);
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+
+        .week-number {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.3rem;
+            margin-right: 20px;
+        }
+
+        .week-title {
+            flex: 1;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .week-chevron {
+            transition: transform 0.3s ease;
+        }
+
+        .week-header.active .week-chevron {
+            transform: rotate(180deg);
+        }
+
+        .week-content {
+            display: none;
+            padding: 20px;
+            background: var(--bg-secondary);
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+        }
+
+        .week-content.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .week-topic {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            padding: 8px 0;
+        }
+
+        .week-topic i {
+            color: var(--accent-gold);
+            width: 16px;
+            height: 16px;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        /* Pricing Section */
+        .pricing-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .price-main {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .price-amount {
+            font-size: 5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            line-height: 1;
+        }
+
+        .price-currency {
+            font-size: 2rem;
+            color: var(--text-muted);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 20px;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .pricing-card.recommended {
+            border-color: var(--accent-gold);
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .pricing-badge {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .subtitle {
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .payment-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .payment-item:last-child {
+            border-bottom: none;
+        }
+
+        .payment-item i {
+            color: var(--accent-gold);
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .payment-amount {
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        /* Location Section */
+        .location-section {
+            background-color: var(--bg-primary);
+        }
+
+        .location-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .location-info h3 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+        }
+
+        .location-features {
+            margin: 30px 0;
+        }
+
+        .location-feature {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+        }
+
+        .location-feature i {
+            color: var(--accent-gold);
+            width: 24px;
+            height: 24px;
+        }
+
+        .location-address {
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+        .location-address i {
+            color: var(--accent-gold);
+            margin-right: 10px;
+        }
+
+        .location-map {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            height: 400px;
+            background: var(--bg-card);
+        }
+
+        .location-map iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* Instructor Section */
+        .instructor-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .instructor-grid {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .instructor-image {
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .instructor-image img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+        }
+
+        .instructor-info h3 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .instructor-role {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .instructor-bio {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .instructor-bio p {
+            margin-bottom: 20px;
+        }
+
+        .instructor-achievements {
+            margin-top: 30px;
+            padding: 20px;
+            background: var(--bg-card);
+            border-radius: 10px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            background-color: var(--bg-primary);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            aspect-ratio: 1;
+        }
+
+        .gallery-item:nth-child(1) {
+            grid-column: span 2;
+            grid-row: span 2;
+            aspect-ratio: auto;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            display: flex;
+            align-items: flex-end;
+            padding: 20px;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Enrollment Slots Section */
+        .slots-section {
+            background-color: var(--bg-secondary);
+            text-align: center;
+        }
+
+        .slots-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 20px;
+            border: 2px solid var(--accent-gold);
+        }
+
+        .slots-visual {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .slot {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 800;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .slot.filled {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            box-shadow: 0 0 20px rgba(255, 184, 0, 0.3);
+        }
+
+        .slot.empty {
+            background: transparent;
+            border: 2px solid var(--border-color);
+            color: var(--text-muted);
+        }
+
+        .slots-message {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .slots-remaining {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Application Form Section */
+        .application-section {
+            background-color: var(--bg-primary);
+        }
+
+        .application-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: 50px;
+            border-radius: 20px;
+        }
+
+        .form-intro {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--text-secondary);
+        }
+
+        .form-section {
+            margin-bottom: 40px;
+        }
+
+        .form-section-title {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--accent-gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-label .required {
+            color: var(--accent-red);
+        }
+
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-radio-group {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .form-radio {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .form-radio input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-gold);
+        }
+
+        .form-checkbox {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            cursor: pointer;
+            padding: 15px;
+            background: var(--bg-secondary);
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .form-checkbox input {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-gold);
+            margin-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .form-checkbox-text {
+            font-size: 0.95rem;
+        }
+
+        .form-submit-btn {
+            width: 100%;
+            padding: 18px;
+            font-size: 1.2rem;
+            margin-top: 30px;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            background-color: var(--bg-secondary);
+        }
+
+        .faq-accordion {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 25px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: background 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: var(--bg-secondary);
+        }
+
+        .faq-question.active {
+            color: var(--accent-gold);
+        }
+
+        .faq-icon {
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: transform 0.3s ease;
+        }
+
+        .faq-question.active .faq-icon {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 0 25px 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .faq-answer.active {
+            display: block;
+            animation: slideDown 0.3s ease;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--bg-primary);
+            padding: 80px 0 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: var(--bg-card);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+        }
+
+        .footer-column h4 {
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: var(--text-muted);
+        }
+
+        .footer-contact i {
+            color: var(--accent-gold);
+            width: 20px;
+            height: 20px;
+        }
+
+        .footer-contact a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-contact a:hover {
+            color: var(--accent-gold);
+        }
+
+        .footer-bottom {
+            padding-top: 30px;
+            border-top: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-bottom p {
+            color: var(--text-muted);
+        }
+
+        /* Floating CTA */
+        .floating-cta {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 100;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            pointer-events: none;
+        }
+
+        .floating-cta.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .floating-cta a {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--accent-red);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 30px rgba(139, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .floating-cta a:hover {
+            background: var(--accent-red-light);
+            transform: scale(1.05);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 10, 10, 0.98);
+            z-index: 2000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 80px 30px 30px;
+        }
+
+        .mobile-menu.open {
+            transform: translateX(0);
+        }
+
+        .mobile-menu-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .mobile-menu-links {
+            list-style: none;
+            flex: 1;
+        }
+
+        .mobile-menu-links li {
+            margin-bottom: 20px;
+        }
+
+        .mobile-menu-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.5rem;
+            font-weight: 600;
+            display: block;
+            padding: 10px 0;
+            transition: color 0.3s ease;
+        }
+
+        .mobile-menu-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .concept-grid,
+            .location-grid,
+            .instructor-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .instructor-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instructor-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .how-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 2;
+            }
+
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn-primary, .btn-secondary {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .how-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-item:nth-child(1) {
+                grid-column: span 1;
+                grid-row: span 1;
+            }
+
+            .slots-visual {
+                gap: 10px;
+            }
+
+            .slot {
+                width: 45px;
+                height: 45px;
+                font-size: 1rem;
+            }
+
+            .application-form {
+                padding: 30px 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .floating-cta {
+                bottom: 20px;
+                right: 20px;
+                left: 20px;
+            }
+
+            .floating-cta a {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="#" class="logo">7 Veličanstvenih</a>
+            <ul class="nav-links">
+                <li><a href="#about">O kursu</a></li>
+                <li><a href="#program">Program</a></li>
+                <li><a href="#pricing">Cena</a></li>
+                <li><a href="#instructor">Instruktor</a></li>
+                <li><a href="#gallery">Galerija</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+            <a href="#application" class="nav-cta">Prijavi se</a>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <i data-lucide="menu" style="width: 28px; height: 28px;"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu-close" onclick="toggleMobileMenu()">
+            <i data-lucide="x" style="width: 32px; height: 32px;"></i>
+        </button>
+        <ul class="mobile-menu-links">
+            <li><a href="#about" onclick="toggleMobileMenu()">O kursu</a></li>
+            <li><a href="#program" onclick="toggleMobileMenu()">Program</a></li>
+            <li><a href="#pricing" onclick="toggleMobileMenu()">Cena</a></li>
+            <li><a href="#instructor" onclick="toggleMobileMenu()">Instruktor</a></li>
+            <li><a href="#gallery" onclick="toggleMobileMenu()">Galerija</a></li>
+            <li><a href="#application" onclick="toggleMobileMenu()">Prijava</a></li>
+            <li><a href="#contact" onclick="toggleMobileMenu()">Kontakt</a></li>
+        </ul>
+        <a href="#application" class="btn-primary" onclick="toggleMobileMenu()" style="text-align: center;">Prijavi se</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>🎥 7 Veličanstvenih</h1>
+            <p class="hero-subtitle">Filmska avantura za 7 odabranih</p>
+            <p class="hero-description">
+                Filmska škola za radoznale, hrabre i kreativne.<br>
+                7 nedelja. 7 žanrova. 7 uloga. 7 polaznika.<br>
+                Jedna filmska ekipa.
+            </p>
+            <div class="hero-buttons">
+                <a href="#application" class="btn-primary">👉 Prijavi se</a>
+                <a href="#video" class="btn-secondary">👉 Pogledaj trejler</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-section" id="video">
+        <div class="container">
+            <h2 class="section-title">Pogledaj priču o avanturi</h2>
+            <div class="video-container">
+                <div class="video-placeholder" onclick="playVideo(this)">
+                    <div class="play-button">
+                        <i data-lucide="play"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Concept Section -->
+    <section class="concept-section" id="about">
+        <div class="container">
+            <h2 class="section-title">Šta je 7 Veličanstvenih?</h2>
+            <div class="concept-grid">
+                <div class="concept-text">
+                    <h3>Praktična filmska škola</h3>
+                    <p>7 Veličanstvenih je praktična filmska škola za samo 7 polaznika koji žele da iskuse pravu filmsku avanturu.</p>
+                    <p>Radimo brzo, kreativno i timski — kao mala profesionalna filmska ekipa.</p>
+                    <p style="margin-top: 30px; color: var(--accent-gold); font-weight: 600;">U 7 nedelja prolaziš sve žanrove — i na kraju sa grupom snimaš kratki film.</p>
+                </div>
+                <div class="skills-list">
+                    <h3 style="margin-bottom: 20px; color: var(--accent-gold);">Učiš sve:</h3>
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i data-lucide="smartphone"></i>
+                            <span>Snimanje telefonom kao profi alatom</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="scissors"></i>
+                            <span>Montažu i ritam</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="user"></i>
+                            <span>Glumu pred kamerom</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="clapperboard"></i>
+                            <span>Režiju i vođenje tima</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="sun"></i>
+                            <span>Rad sa svetlom i kompozicijom</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="film"></i>
+                            <span>Dokumentarac, reklamu, spot</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="layers"></i>
+                            <span>Stop motion i video art</span>
+                        </div>
+                        <div class="skill-item">
+                            <i data-lucide="pen-tool"></i>
+                            <span>Osnove dramaturgije i scenarija</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audience Section -->
+    <section class="audience-section">
+        <div class="container">
+            <h2 class="section-title">Kome je ova škola namenjena?</h2>
+            <div class="audience-checks">
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako si radoznao</span>
+                </div>
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako voliš film</span>
+                </div>
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako želiš da stvoriš nešto svoje</span>
+                </div>
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako razmišljaš o upisu filmskog fakulteta</span>
+                </div>
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako želiš hobi koji te inspiriše</span>
+                </div>
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako ti fali kreativni izazov</span>
+                </div>
+                <div class="check-item">
+                    <i data-lucide="check"></i>
+                    <span>Ako želiš da vidiš kako izgleda prava filmska ekipa</span>
+                </div>
+            </div>
+            <p class="audience-highlight">Ovo je avantura za tebe.</p>
+            <p class="audience-requirements">Uzrast: 16–50 godina. Nije potrebna oprema — samo telefon i želja.</p>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-section">
+        <div class="container">
+            <h2 class="section-title">Kako kurs funkcioniše?</h2>
+            <div class="how-grid">
+                <div class="how-card">
+                    <i data-lucide="calendar"></i>
+                    <h3>7 nedelja</h3>
+                    <p>Intenzivnog rada</p>
+                </div>
+                <div class="how-card">
+                    <i data-lucide="clock"></i>
+                    <h3>Vikend format</h3>
+                    <p>Subota i nedelja, 10:00 – 15:00</p>
+                </div>
+                <div class="how-card">
+                    <i data-lucide="users"></i>
+                    <h3>7 polaznika</h3>
+                    <p>Ne počinjemo dok se ne popuni 7/7</p>
+                </div>
+                <div class="how-card">
+                    <i data-lucide="film"></i>
+                    <h3>7 žanrova</h3>
+                    <p>Svaki čas je jedan žanr</p>
+                </div>
+                <div class="how-card">
+                    <i data-lucide="video"></i>
+                    <h3>100% praktično</h3>
+                    <p>Rad na terenu i u studiju</p>
+                </div>
+                <div class="how-card">
+                    <i data-lucide="message-circle"></i>
+                    <h3>Video feedback</h3>
+                    <p>Svake nedelje dobijaš video poruku</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Curriculum Section -->
+    <section class="curriculum-section" id="program">
+        <div class="container">
+            <h2 class="section-title">Plan i program</h2>
+            <div class="curriculum-accordion">
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">1</div>
+                            <div class="week-title">Intervju & Podcast</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Osnove kadrova</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>3 svetla</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Rad sa sagovornikom</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Dijalozi 2–3 osobe</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Prelazak rampe (učenje)</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Montažne tehnike (elipsa, simbol, metafora)</span></div>
+                    </div>
+                </div>
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">2</div>
+                            <div class="week-title">Reel & Reklama (Product Placement)</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Brzina i ritam</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Storytelling za mreže</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>3 plana proizvoda</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Beauty shot tehnike</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Svetlo za reklamu</span></div>
+                    </div>
+                </div>
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">3</div>
+                            <div class="week-title">Cover & Muzički spot</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Snimanje performansa</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Ritmička montaža</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Akcione sekvence</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Kako snimiti šamar, udarac, pad</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Speed ramp, slow motion</span></div>
+                    </div>
+                </div>
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">4</div>
+                            <div class="week-title">Video CV & Mini dokumentarac</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Gluma pred kamerom</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Lična prezentacija</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Arhivska građa</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Subjektivac</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Improvizovano kretanje kamere</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Izbegavanje praznog hoda</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Making of vežba</span></div>
+                    </div>
+                </div>
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">5</div>
+                            <div class="week-title">Stop Motion & Eksperimentalni video</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Animacija plastelinom</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Metafore i simboli</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Kreativni ritam</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Color grading osnove</span></div>
+                    </div>
+                </div>
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">6</div>
+                            <div class="week-title">Priprema & Snimanje kratkog filma</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Podela uloga</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Dramaturgija</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>3 dramska čvorišta</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Akcija & reakcija</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Plan snimanja</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Snimanje timski</span></div>
+                    </div>
+                </div>
+                <div class="week-item">
+                    <div class="week-header" onclick="toggleWeek(this)">
+                        <div style="display: flex; align-items: center;">
+                            <div class="week-number">7</div>
+                            <div class="week-title">Projekcija, kritika, diplome i nagrade</div>
+                        </div>
+                        <i data-lucide="chevron-down" class="week-chevron"></i>
+                    </div>
+                    <div class="week-content">
+                        <div class="week-topic"><i data-lucide="film"></i><span>Gledamo filmove</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Profesionalna analiza</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Nagrada za najbolji rad</span></div>
+                        <div class="week-topic"><i data-lucide="film"></i><span>Druženje i završna ceremonija</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section" id="pricing">
+        <div class="container">
+            <h2 class="section-title">Cena kursa i način plaćanja</h2>
+            <div class="price-main">
+                <span class="price-amount">777</span>
+                <span class="price-currency">€</span>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Opcija A — 2 rate</h3>
+                    <p class="subtitle">Najlakše psihološki</p>
+                    <div class="payment-item">
+                        <i data-lucide="check"></i>
+                        <div>
+                            <span class="payment-amount">388 €</span> — pri prijavi (rezervacija mesta)
+                        </div>
+                    </div>
+                    <div class="payment-item">
+                        <i data-lucide="check"></i>
+                        <div>
+                            <span class="payment-amount">389 €</span> — posle druge nedelje
+                        </div>
+                    </div>
+                </div>
+                <div class="pricing-card recommended">
+                    <div class="pricing-badge">Najpopularnije</div>
+                    <h3>Opcija B — 3 rate</h3>
+                    <p class="subtitle">Najlaganije</p>
+                    <div class="payment-item">
+                        <i data-lucide="check"></i>
+                        <div>
+                            <span class="payment-amount">270 €</span> — odmah (rezervacija)
+                        </div>
+                    </div>
+                    <div class="payment-item">
+                        <i data-lucide="check"></i>
+                        <div>
+                            <span class="payment-amount">260 €</span> — početak 3. nedelje
+                        </div>
+                    </div>
+                    <div class="payment-item">
+                        <i data-lucide="check"></i>
+                        <div>
+                            <span class="payment-amount">247 €</span> — početak 6. nedelje
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section class="location-section" id="location">
+        <div class="container">
+            <h2 class="section-title">Lokacija</h2>
+            <div class="location-grid">
+                <div class="location-info">
+                    <h3>Studio u Beogradu</h3>
+                    <div class="location-features">
+                        <div class="location-feature">
+                            <i data-lucide="check"></i>
+                            <span>Veliko dvorište sa travnjakom (za eksterijere)</span>
+                        </div>
+                        <div class="location-feature">
+                            <i data-lucide="check"></i>
+                            <span>Mini stop motion zona</span>
+                        </div>
+                        <div class="location-feature">
+                            <i data-lucide="check"></i>
+                            <span>Profesionalna mini setup rasveta (Nanlite)</span>
+                        </div>
+                        <div class="location-feature">
+                            <i data-lucide="check"></i>
+                            <span>Prostor za montažu i projekciju</span>
+                        </div>
+                    </div>
+                    <div class="location-address">
+                        <i data-lucide="map-pin"></i>
+                        <span>Jurija Gagarina 257, Beograd, 11000, Srbija</span>
+                    </div>
+                </div>
+                <div class="location-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2831.8!2d20.4!3d44.78!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDQ2JzQ4LjAiTiAyMMKwMjQnMDAuMCJF!5e0!3m2!1sen!2srs!4v1620000000000!5m2!1sen!2srs"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructor Section -->
+    <section class="instructor-section" id="instructor">
+        <div class="container">
+            <h2 class="section-title">Ko vodi školu?</h2>
+            <div class="instructor-grid">
+                <div class="instructor-image">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop" alt="Miloš Popović">
+                </div>
+                <div class="instructor-info">
+                    <h3>Miloš "Mića" Popović</h3>
+                    <p class="instructor-role">Režiser, snimatelj, montažer, producent</p>
+                    <div class="instructor-bio">
+                        <p>Filmski avanturista, mentor, čovek koji veruje da dobar kadar može da ti promeni život.</p>
+                        <p>Vodi te kroz svaki korak — od prve ideje do finalnog eksporta.</p>
+                        <p>Diplomirani televizijski i filmski reditelj. Dobitnik nagrade "Zlatni vitez" za dokumentarni film "Deca besmrtnosti". Osnivač produkcije Zahar Video Production sa preko 10 godina iskustva u snimanju, montaži, produkciji i pisanju scenarija.</p>
+                    </div>
+                    <div class="instructor-achievements">
+                        <strong>Radovi:</strong> MK Grupa, Exit Festival, Banca Intesa, Avon, Veuve Clicquot, RTS verski program, dokumentarni filmovi, muzički spotovi za Goca Tržan, Lena Kovačević, Tanja Savić, Lexington i mnogi drugi.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galerija</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=600&h=600&fit=crop" alt="Film production">
+                    <div class="gallery-overlay">
+                        <span>Studio</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=400&h=400&fit=crop" alt="Camera equipment">
+                    <div class="gallery-overlay">
+                        <span>Oprema</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=400&h=400&fit=crop" alt="Camera">
+                    <div class="gallery-overlay">
+                        <span>Snimanje</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=400&h=400&fit=crop" alt="Studio">
+                    <div class="gallery-overlay">
+                        <span>Rasveta</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1579208575657-c595a05383b7?w=400&h=400&fit=crop" alt="Behind the scenes">
+                    <div class="gallery-overlay">
+                        <span>Iza kulisa</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1536240478700-b869070f9279?w=400&h=400&fit=crop" alt="Film set">
+                    <div class="gallery-overlay">
+                        <span>Set</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enrollment Slots Section -->
+    <section class="slots-section">
+        <div class="container">
+            <h2 class="section-title">Preostala mesta</h2>
+            <div class="slots-container">
+                <div class="slots-visual">
+                    <div class="slot filled">✓</div>
+                    <div class="slot filled">✓</div>
+                    <div class="slot filled">✓</div>
+                    <div class="slot empty">4</div>
+                    <div class="slot empty">5</div>
+                    <div class="slot empty">6</div>
+                    <div class="slot empty">7</div>
+                </div>
+                <p class="slots-message">Kurs počinje kada se popuni svih 7 mesta.</p>
+                <p class="slots-remaining">4 mesta preostalo!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Application Form Section -->
+    <section class="application-section" id="application">
+        <div class="container">
+            <h2 class="section-title">Prijava za kurs</h2>
+            <div class="application-form">
+                <p class="form-intro">Popuni prijavu i učini prvi korak ka svojoj filmskoj avanturi. Pregledaćemo tvoju prijavu i javićemo ti u roku od 48 sati.</p>
+
+                <form id="applicationForm" onsubmit="handleSubmit(event)">
+                    <!-- Personal Information -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i data-lucide="user" style="width: 20px; height: 20px;"></i>
+                            Lični podaci
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label">Ime i prezime <span class="required">*</span></label>
+                            <input type="text" class="form-input" name="name" required placeholder="Tvoje ime i prezime">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Datum rođenja <span class="required">*</span></label>
+                            <input type="date" class="form-input" name="birthdate" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email adresa <span class="required">*</span></label>
+                            <input type="email" class="form-input" name="email" required placeholder="tvoj.email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Broj telefona <span class="required">*</span></label>
+                            <input type="tel" class="form-input" name="phone" required placeholder="+381 XX XXX XXXX">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Profil na društvenim mrežama (opciono)</label>
+                            <input type="text" class="form-input" name="social" placeholder="Instagram, YouTube, ili drugi profil">
+                        </div>
+                    </div>
+
+                    <!-- Motivation -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i data-lucide="heart" style="width: 20px; height: 20px;"></i>
+                            Vaša motivacija
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label">Zašto želite da upišete ovaj kurs? <span class="required">*</span></label>
+                            <textarea class="form-textarea" name="motivation" required placeholder="Reci nam šta te motiviše..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Šta očekujete da naučite tokom kursa? <span class="required">*</span></label>
+                            <textarea class="form-textarea" name="expectations" required placeholder="Koje veštine želiš da usavrišiš?"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Previous Experience -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i data-lucide="briefcase" style="width: 20px; height: 20px;"></i>
+                            Prethodno iskustvo
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label">Da li imate iskustva u snimanju?</label>
+                            <div class="form-radio-group">
+                                <label class="form-radio">
+                                    <input type="radio" name="filming_experience" value="yes">
+                                    <span>Da</span>
+                                </label>
+                                <label class="form-radio">
+                                    <input type="radio" name="filming_experience" value="no" checked>
+                                    <span>Ne</span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Da li znate da koristite neki editing program?</label>
+                            <div class="form-radio-group">
+                                <label class="form-radio">
+                                    <input type="radio" name="editing_experience" value="yes">
+                                    <span>Da</span>
+                                </label>
+                                <label class="form-radio">
+                                    <input type="radio" name="editing_experience" value="no" checked>
+                                    <span>Ne</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Technical Equipment -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i data-lucide="smartphone" style="width: 20px; height: 20px;"></i>
+                            Tehnička oprema
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label">Da li vaš telefon ispunjava minimalne uslove? <span class="required">*</span></label>
+                            <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 15px;">
+                                Minimalni zahtevi: Snimanje minimum 1080p, Blackmagic Camera app, 10GB slobodne memorije
+                            </p>
+                            <div class="form-radio-group" style="flex-direction: column; gap: 10px;">
+                                <label class="form-radio">
+                                    <input type="radio" name="phone_requirements" value="yes" required>
+                                    <span>Da, moj telefon ispunjava sve uslove</span>
+                                </label>
+                                <label class="form-radio">
+                                    <input type="radio" name="phone_requirements" value="will_get">
+                                    <span>Ne, ali ću nabaviti odgovarajući telefon</span>
+                                </label>
+                                <label class="form-radio">
+                                    <input type="radio" name="phone_requirements" value="unsure">
+                                    <span>Nisam siguran/sigurna</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Options -->
+                    <div class="form-section">
+                        <h3 class="form-section-title">
+                            <i data-lucide="credit-card" style="width: 20px; height: 20px;"></i>
+                            Uslovi plaćanja
+                        </h3>
+                        <div class="form-group">
+                            <label class="form-label">Izaberite opciju plaćanja: <span class="required">*</span></label>
+                            <div class="form-radio-group" style="flex-direction: column; gap: 10px;">
+                                <label class="form-radio">
+                                    <input type="radio" name="payment_option" value="option_a" required>
+                                    <span>Opcija A — 2 rate (388€ + 389€)</span>
+                                </label>
+                                <label class="form-radio">
+                                    <input type="radio" name="payment_option" value="option_b">
+                                    <span>Opcija B — 3 rate (270€ + 260€ + 247€)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Consent -->
+                    <div class="form-section">
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="consent" required>
+                            <span class="form-checkbox-text">Potvrđujem da sam saglasan/saglasna da organizator koristi moje snimljene materijale, lik i glas u promotivne svrhe kursa.</span>
+                        </label>
+                        <label class="form-checkbox">
+                            <input type="checkbox" name="rules" required>
+                            <span class="form-checkbox-text">
+                                Prihvatam pravila ponašanja i odgovornosti:
+                                <br>• Dolazak na vreme i poštovanje celog tima
+                                <br>• Razumevanje da su snimanja tehnički zahtevna
+                                <br>• Rad u timu sa dodeljenim ulogama
+                                <br>• Zabrana objavljivanja tuđih materijala bez dozvole
+                            </span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-primary form-submit-btn">Pošalji prijavu</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Često postavljana pitanja</h2>
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Da li treba da imam iskustva?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Ne. Kurs je dizajniran za početnike i one sa minimalnim iskustvom. Sve što ti treba je želja da učiš i kreiraš.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Da li je telefon dovoljan?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Da — minimum 1080p snimanje + Blackmagic Camera aplikacija. Nije potrebna skupa oprema.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Šta ako ne znam da montiram?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Naučićeš tokom kursa. Montaža je jedan od glavnih fokusa, i idemo korak po korak.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Šta ako propustim čas?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Časovi se ne nadoknađuju, ali dobijaš smernice i materijale da možeš da nastaviš sa grupom.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Kada biramo uloge?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        6. nedelja – uloge za kratki film se biraju po zaslugama i doprinosu tokom prvih pet nedelja.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Da li mogu doći pre 16 ili posle 50 godina?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Možeš — ako imaš disciplinu i želju. Fokus je na kreativnosti, ne na starosti.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Da li dobijem sertifikat?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        Da, svi polaznici dobijaju diplomu po završetku kursa, a najbolji rad dobija nagradu.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFaq(this)">
+                        <span>Koliko traje jedan čas?</span>
+                        <span class="faq-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        10 sati nedeljno (subota i nedelja, 10:00-15:00). Ukupno 70 sati kroz 7 nedelja.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>7 Veličanstvenih</h3>
+                    <p>Filmska škola za radoznale, hrabre i kreativne. Pridruži se avanturi!</p>
+                    <div class="social-links">
+                        <a href="https://instagram.com/zahar_video_production" target="_blank" class="social-link">
+                            <i data-lucide="instagram"></i>
+                        </a>
+                        <a href="mailto:videoproductionzahar@gmail.com" class="social-link">
+                            <i data-lucide="mail"></i>
+                        </a>
+                        <a href="tel:+381653010101" class="social-link">
+                            <i data-lucide="phone"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Brzi linkovi</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">O kursu</a></li>
+                        <li><a href="#program">Program</a></li>
+                        <li><a href="#pricing">Cena</a></li>
+                        <li><a href="#application">Prijava</a></li>
+                        <li><a href="#gallery">Galerija</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Kontakt</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <i data-lucide="mail"></i>
+                            <a href="mailto:videoproductionzahar@gmail.com">videoproductionzahar@gmail.com</a>
+                        </p>
+                        <p>
+                            <i data-lucide="phone"></i>
+                            <a href="tel:+381653010101">+381 65 301 0101</a>
+                        </p>
+                        <p>
+                            <i data-lucide="instagram"></i>
+                            <a href="https://instagram.com/zahar_video_production" target="_blank">@zahar_video_production</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Lokacija</h4>
+                    <div class="footer-contact">
+                        <p>
+                            <i data-lucide="map-pin"></i>
+                            <span>Jurija Gagarina 257<br>Beograd, 11000<br>Srbija</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 7 Veličanstvenih. Sva prava zadržana. Zahar Video Production</p>
+                <p>Imaš pitanja? Pošalji nam poruku!</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating CTA -->
+    <div class="floating-cta" id="floatingCta">
+        <a href="#application">
+            <i data-lucide="pen-tool" style="width: 20px; height: 20px;"></i>
+            <span>Prijavi se</span>
+        </a>
+    </div>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            const floatingCta = document.getElementById('floatingCta');
+
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            if (window.scrollY > 500) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('open');
+            document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+        }
+
+        // Week accordion toggle
+        function toggleWeek(element) {
+            const wasActive = element.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.week-header').forEach(header => {
+                header.classList.remove('active');
+                header.nextElementSibling.classList.remove('active');
+            });
+
+            // Open clicked if it wasn't active
+            if (!wasActive) {
+                element.classList.add('active');
+                element.nextElementSibling.classList.add('active');
+            }
+
+            lucide.createIcons();
+        }
+
+        // FAQ accordion toggle
+        function toggleFaq(element) {
+            const wasActive = element.classList.contains('active');
+
+            // Close all
+            document.querySelectorAll('.faq-question').forEach(q => {
+                q.classList.remove('active');
+                q.nextElementSibling.classList.remove('active');
+            });
+
+            // Open clicked if it wasn't active
+            if (!wasActive) {
+                element.classList.add('active');
+                element.nextElementSibling.classList.add('active');
+            }
+        }
+
+        // Video play
+        function playVideo(element) {
+            // Replace with actual video embed when available
+            element.innerHTML = `
+                <div style="width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: #1a1a1a;">
+                    <p style="color: #A0A0A0; font-size: 1.2rem;">Video trejler će biti dodat uskoro</p>
+                </div>
+            `;
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            console.log('Form submitted:', data);
+
+            // Show success message
+            alert('Prijava uspešno poslata!\n\nHvala što si se prijavio/prijavila. Pregledaćemo tvoju prijavu i javićemo ti u narednih 48 sati na email adresu koju si naveo/navela.');
+
+            // Reset form
+            form.reset();
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(20px)';
+            section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(section);
+        });
+
+        // Make hero visible immediately
+        document.querySelector('.hero').style.opacity = '1';
+        document.querySelector('.hero').style.transform = 'translateY(0)';
+    </script>
+</body>
+</html>
